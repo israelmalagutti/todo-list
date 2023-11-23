@@ -6,7 +6,7 @@ import { Checkbox } from "@components/Checkbox";
 
 import { todoStyles } from "./styles";
 
-type TodoType = {
+export type TodoType = {
   id?: number;
   isCompleted?: boolean;
   description: string;

@@ -32,3 +32,16 @@ export const emptyListStyles = StyleSheet.create({
     fontSize: 14,
   },
 });
+
+export const listInfoStyles = StyleSheet.create({
+  container: { flexDirection: "row", justifyContent: "space-between" },
+
+  buttonContainer: {
+    flexDirection: "row",
+    gap: 8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  buttonText: { fontSize: 14, fontWeight: "700" },
+});

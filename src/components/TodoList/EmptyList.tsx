@@ -10,7 +10,7 @@ export function EmptyList() {
 
       <View>
         <Text style={emptyListStyles.textBold}>
-          You don't have tasks registered yet
+          You don't have any tasks yet
         </Text>
 
         <Text style={emptyListStyles.text}>
