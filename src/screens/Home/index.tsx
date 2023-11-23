@@ -65,27 +65,31 @@ export const Home: React.FC = () => {
   const [filter, setFilter] = useState<"all" | "done">("all");
 
   const completedTodos = useMemo(() => {
-    return todos.filter(todo => todo.isCompleted === true);
+    return todos.filter(todo => todo.isCompleted);
   }, [todos]);
 
-  const handleNewTodo = useCallback((newItem: string) => {
-    if (newItem === "")
-      return Alert.alert(
-        "Empty item",
-        "Please type a description for the new item",
-        [{ text: "ok" }]
-      );
+  const handleNewTodo = useCallback(
+    (newTodo: string) => {
+      if (!newTodo)
+        return Alert.alert(
+          "Empty item",
+          "Please type a description for the new item",
+          [{ text: "ok" }]
+        );
 
-    const newTodo: TodoType = {
-      id: todos.length + 1,
-      isCompleted: false,
-      description: newItem,
+      setTodos(prevTodos => [
+        ...prevTodos,
+        {
+          id: todos.length + 1,
+          isCompleted: false,
+          description: newTodo,
 
-      createdAt: new Date().toDateString(),
-    };
-
-    setTodos(prevTodos => [...prevTodos, newTodo]);
-  }, []);
+          createdAt: new Date().toDateString(),
+        },
+      ]);
+    },
+    [todos]
+  );
 
   const handleCheckTodo = useCallback((id: number) => {
     setTodos(prevTodos =>
